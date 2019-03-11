@@ -8,6 +8,11 @@ import SignUp from './auth/components/SignUp'
 import SignIn from './auth/components/SignIn'
 import SignOut from './auth/components/SignOut'
 import ChangePassword from './auth/components/ChangePassword'
+import Home from './Home'
+import Trips from './Trips'
+import TripCreate from './TripCreate'
+import Trip from './Trip'
+import TripEdit from './TripEdit'
 
 import Alert from 'react-bootstrap/Alert'
 
@@ -43,6 +48,19 @@ class App extends Component {
           </Alert>
         ))}
         <main className="container">
+          <AuthenticatedRoute exact path='/trips/:id' user={user} render={({ match }) => (
+            <Trip user={user} match={match} alert={this.alert} />
+          )} />
+          <AuthenticatedRoute exact path='/trip/:id/edit' user={user} render={({ match }) => (
+            <TripEdit user={user} match={match} alert={this.alert} />
+          )} />
+          <AuthenticatedRoute exact path='/trip-create' user={user} render={() => (
+            <TripCreate user={user} alert={this.alert} />
+          )} />
+          <Route exact path='/home' component={Home} />
+          <AuthenticatedRoute user={user} exact path='/trips' render={() => (
+            <Trips user={user} alert={this.alert} />
+          )} />
           <Route path='/sign-up' render={() => (
             <SignUp alert={this.alert} setUser={this.setUser} />
           )} />
