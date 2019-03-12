@@ -12,8 +12,7 @@ class TripCreate extends Component {
       name: '',
       origin: '',
       destination: '',
-      todo: '',
-      distance: '',
+      expense: '',
       createdTripId: false,
       shouldRedirect: null,
       message: null
@@ -23,9 +22,9 @@ class TripCreate extends Component {
   handleSubmit = event => {
     event.preventDefault()
 
-    const { name, origin, destination, todo, distance } = this.state
+    const { name, origin, destination, expense } = this.state
 
-    if (name.length === 0 || origin.length === 0 || destination.length === 0 || todo.length === 0 || distance.length === 0) {
+    if (name.length === 0 || origin.length === 0 || destination.length === 0 || expense.length === 0) {
       return this.setState({ message: 'Field cannot be empty.' })
     }
 
@@ -37,11 +36,10 @@ class TripCreate extends Component {
       },
       data: {
         trip: {
-          name: name,
-          origin: origin,
-          destination: destination,
-          todo: todo,
-          distance: distance
+          name,
+          origin,
+          destination,
+          expense
         }
       }
     })
@@ -55,7 +53,7 @@ class TripCreate extends Component {
     }
 
     render () {
-      const { createdTripId, name, origin, destination, todo, distance } = this.state
+      const { createdTripId, name, origin, destination, expense } = this.state
 
       if (createdTripId) {
         return <Redirect to={`/trips/${createdTripId}`} />
@@ -68,7 +66,7 @@ class TripCreate extends Component {
           <TripForm
             handleChange={handleChange}
             handleSubmit={handleSubmit}
-            trip={{ name, origin, destination, todo, distance }}
+            trip={{ name, origin, destination, expense }}
             user={this.props.user} />
         </Fragment>
       )

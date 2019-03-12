@@ -13,6 +13,7 @@ import Trips from './Trips'
 import TripCreate from './TripCreate'
 import Trip from './Trip'
 import TripEdit from './TripEdit'
+import TodoCreate from './TodoCreate'
 
 import Alert from 'react-bootstrap/Alert'
 
@@ -48,6 +49,12 @@ class App extends Component {
           </Alert>
         ))}
         <main className="container">
+          <AuthenticatedRoute user={user} exact path='/trip/:id/todo-create' render={({ match }) => (
+            <TodoCreate user={user} match={match} alert={this.alert} />
+          )} />
+          <AuthenticatedRoute user={user} exact path='/trips' render={() => (
+            <Trips user={user} alert={this.alert} />
+          )} />
           <AuthenticatedRoute exact path='/trips/:id' user={user} render={({ match }) => (
             <Trip user={user} match={match} alert={this.alert} />
           )} />
@@ -57,9 +64,8 @@ class App extends Component {
           <AuthenticatedRoute exact path='/trip-create' user={user} render={() => (
             <TripCreate user={user} alert={this.alert} />
           )} />
-          <Route exact path='/home' component={Home} />
-          <AuthenticatedRoute user={user} exact path='/trips' render={() => (
-            <Trips user={user} alert={this.alert} />
+          <AuthenticatedRoute exact path='/home' user={user} render={() => (
+            <Home user={user} alert={this.alert} />
           )} />
           <Route path='/sign-up' render={() => (
             <SignUp alert={this.alert} setUser={this.setUser} />

@@ -42,7 +42,6 @@ class Trips extends Component {
           <div key={trip.id}>
             <h1><Link to={`/trips/${trip.id}`} user={this.props.user} trip={trip}>{trip.name}</Link></h1>
             <p>{trip.origin} to {trip.destination}.</p>
-            <p>{trip.distance} total distance.</p>
           </div>
         ))}
       </Fragment>

@@ -23,19 +23,12 @@ const TripForm = ({ handleChange, handleSubmit, trip }) => (
       value={trip.destination}
       placeholder="Destination point goes here"
       onChange={handleChange} />
-    <label>To Do</label >
+    <label>Expenses</label >
     <input
-      name="todo"
-      type="text"
-      value={trip.todo}
-      placeholder="Things to do go here"
-      onChange={handleChange} />
-    <label>Distance</label >
-    <input
-      name="distance"
-      type="number"
-      value={trip.distance}
-      placeholder="Miles go here"
+      name="expense"
+      type="currency"
+      value={trip.expense}
+      placeholder="Expenses go here"
       onChange={handleChange} />
     <button type="submit">Submit</button>
   </form>
