@@ -41,7 +41,7 @@ class Trip extends Component {
 
   deleteTodo (tripId, id) {
     axios({
-      url: `${apiUrl}/trips/${tripId}/todos/${id}`,
+      url: `${apiUrl}/todos/${id}`,
       method: 'delete',
       headers: {
         'Authorization': `Token token=${this.props.user.token}`
