@@ -16,6 +16,8 @@
 ## About the app
 router.jn is an app created out of necessity. The idea for this app stemmed from the lack of websites that can log road trips you've taken or plan to take. You can add places to travel to, expenses along the way, and add/delete todos that you plan on accomplishing in your travels.
 
+![](https://i.imgur.com/9tPuxRn.png)
+
 ## Technologies Used
 - React.js
 - React Router
