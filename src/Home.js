@@ -1,6 +1,9 @@
 import React, { Fragment, Component } from 'react'
 import axios from 'axios'
 import apiUrl from './apiConfig'
+import { Link } from 'react-router-dom'
+import Button from '@material-ui/core/Button'
+import AddCircle from '@material-ui/icons/AddCircle'
 
 class Home extends Component {
   constructor () {
@@ -24,19 +27,12 @@ class Home extends Component {
   }
 
   render () {
-    const { trips } = this.state
-
-    if (!trips) {
-      return (
-        <Fragment>
-          <p>You do not have any trips in your list.</p>
-        </Fragment>
-      )
-    }
-
     return (
       <Fragment>
-        <p>Home</p>
+        <p>Router.jn</p>
+        <Link to="/trip-create" user={this.props.user}><Button><AddCircle />Create a trip</Button></Link>
+        <p>or</p>
+        <Link to="/trip-create" user={this.props.user}><Button>View your trips</Button></Link>
       </Fragment>
     )
   }

@@ -3,6 +3,11 @@ import axios from 'axios'
 import apiUrl from './apiConfig'
 import { Redirect } from 'react-router'
 import { Link } from 'react-router-dom'
+import Delete from '@material-ui/icons/Delete'
+import AddCircle from '@material-ui/icons/AddCircle'
+import Edit from '@material-ui/icons/Edit'
+import Button from '@material-ui/core/Button'
+import PropTypes from 'prop-types'
 
 class Trip extends Component {
   constructor () {
@@ -56,7 +61,7 @@ class Trip extends Component {
 
     if (shouldRedirect) {
       return <Redirect to={{
-        pathname: '/home',
+        pathname: '/trips/',
         state: {
           message: redirectMessage
         }
@@ -72,17 +77,20 @@ class Trip extends Component {
     const { id, name, origin, destination, expense } = trip
     return (
       <article>
-        <div key={id} className="jumbotron mx-4">
-          <h1>{name}</h1>
+        <div key={id} className="trip-card container">
+          <span className="trip-name">{name}</span>
+          <hr className="ruler" /><br />
           <center>
             {console.log(trip)}
             <Link to={{ pathname: `/trip/${id}/todo-create`, state: { trip } }}>
-              <button>Add Todo</button>
+              <Button><AddCircle />Todo</Button>
             </Link>
-            <Link to={`/trip/${id}/edit`}>
-              <button>Edit</button>
+            <Link to={`/trips/${id}/edit`}>
+              <Button><Edit /></Button>
             </Link>
-            <button onClick={() => this.deleteTrip(id)}>Delete</button>
+            <Button>
+              <Delete onClick={() => this.deleteTrip(id)} />
+            </Button>
           </center>
           <p className="lead">{origin} to {destination}.</p>
           <hr className="my-4" />
@@ -100,6 +108,10 @@ class Trip extends Component {
       </article>
     )
   }
+}
+
+Trip.propTypes = {
+  classes: PropTypes.object.isRequired
 }
 
 export default Trip

@@ -84,7 +84,7 @@ class TodoCreate extends Component {
     }
 
     if (editedTodo) {
-      return <Redirect to={`/trip/${trip.id}`} />
+      return <Redirect to={`/trips/${trip.id}`} />
     }
 
     return (

@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import axios from 'axios'
 import apiUrl from './apiConfig'
 import { Link } from 'react-router-dom'
@@ -25,8 +25,10 @@ class Trips extends Component {
   }
 
   render () {
-    console.log('hi')
-    if (!this.state.trips) {
+    const { trips } = this.state
+    const { user } = this.props
+
+    if (!trips) {
       return (
         <center>
           <div className="spinner-border text-primary" role="status">
@@ -36,15 +38,21 @@ class Trips extends Component {
       )
     }
 
+    if (trips.length < 1) {
+      return (
+        <p>You have no trips yet.</p>
+      )
+    }
+
     return (
-      <Fragment>
-        {this.state.trips.map(trip => (
-          <div key={trip.id}>
-            <h1><Link to={`/trips/${trip.id}`} user={this.props.user} trip={trip}>{trip.name}</Link></h1>
+      <div>
+        {trips.map(trip => (
+          <div className="trip-card container" key={trip.id}>
+            <h1><Link to={`/trips/${trip.id}`} user={user} trip={trip}>{trip.name}</Link></h1>
             <p>{trip.origin} to {trip.destination}.</p>
           </div>
         ))}
-      </Fragment>
+      </div>
     )
   }
 }
