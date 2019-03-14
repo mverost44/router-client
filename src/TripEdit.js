@@ -70,7 +70,7 @@ class TripEdit extends Component {
     }
 
     if (editedTrip) {
-      return <Redirect to={`/trip/${trip.id}`} />
+      return <Redirect to={`/trips/${trip.id}`} />
     }
 
     return (

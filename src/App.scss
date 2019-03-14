@@ -2,6 +2,133 @@ $success: #c7f282;
 $warning: #f1e681;
 $error: #f08181;
 $charcoal: #ccc;
+$melon: #fe6b8b;
+$orange: #ff8e53;
+$primary: linear-gradient(45deg, $melon 30%, $orange 90%);
+
+@import url('https://fonts.googleapis.com/css?family=Carrois+Gothic+SC');
+
+a {
+  color: black;
+}
+
+/* The sidepanel menu */
+.sidepanel {
+  height: 100%; /* Specify a height */
+  width: 0; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Stay on top */
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 60px; /* Place content 60px from the top */
+  transition: 0.5s; /* 0.5 second transition effect to slide in the sidepanel */
+}
+
+/* The sidepanel links */
+.sidepanel a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidepanel a:hover {
+  color: #f1f1f1;
+}
+
+/* Position and style the close button (top right corner) */
+.sidepanel .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+.ruler {
+  overflow: visible; /* For IE */
+  padding: 0;
+  border: none;
+  border-top: medium double #333;
+  color: #333;
+  text-align: center;
+}
+
+.ruler::after {
+  content: "§";
+  display: inline-block;
+  position: relative;
+  top: -0.7em;
+  font-size: 1.5em;
+  padding: 0 0.25em;
+  background: white;
+}
+
+.trip-card {
+  -moz-border-radius: 50px;
+  -webkit-border-radius: 50px;
+  border: 1px dashed #4d568f;
+  border-radius: 50px;
+  background: #fff;
+  margin: 5vh auto;
+  width: 425px;
+}
+
+.line-1 {
+  position: relative;
+  top: 50%;
+  width: 24em;
+  margin: 0 auto;
+  border-right: 2px solid rgba(255, 255, 255, 0.75);
+  font-size: 180%;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  transform: translateY(-50%);
+}
+
+.anim-typewriter {
+  animation:
+    typewriter 4s steps(44) 1s 1 normal both,
+    blinkTextCursor 500ms steps(44) infinite normal;
+}
+
+@keyframes typewriter {
+  from { width: 0; }
+  to { width: 24em; }
+}
+
+@keyframes blinkTextCursor {
+  from { border-right-color: rgba(255, 255, 255, 0.75); }
+  to { border-right-color: transparent; }
+}
+
+.trip-name {
+  display: flex;
+  font-family: 'Carrois Gothic SC', sans-serif;
+  font-size: 45px;
+  justify-content: center;
+}
+
+.left {
+  background: #cfd8dc;
+  float: left;
+  height: 100vh;
+  margin: 0;
+  overflow-y: auto;
+  width: 35%;
+}
+
+.right {
+  float: left;
+  overflow: hidden;
+  width: 65%;
+}
 
 .flash-success,
 .flash-warning,
