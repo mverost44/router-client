@@ -15,6 +15,7 @@ import Trip from './Trip'
 import TripEdit from './TripEdit'
 import TodoCreate from './TodoCreate'
 import Layout from './Layout'
+import FrontPage from './FrontPage'
 
 import Alert from 'react-bootstrap/Alert'
 import 'typeface-roboto'
@@ -73,6 +74,7 @@ class App extends Component {
             <Route path='/sign-up' render={() => (
               <SignUp alert={this.alert} setUser={this.setUser} />
             )} />
+            <Route exact path='/' component={FrontPage} />
             <Route exact path='/sign-in' render={() => (
               <SignIn alert={this.alert} setUser={this.setUser} />
             )} />

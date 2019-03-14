@@ -6,7 +6,7 @@ const Layout = ({ children }) => (
       { children }
     </div>
     <div className="right">
-      <img src="https://i.imgur.com/YjrwCJ9.png" />
+      <img className="map" src="https://i.imgur.com/OtsRSS9.png" />
     </div>
   </Fragment>
 )

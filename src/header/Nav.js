@@ -73,9 +73,10 @@ class MenuAppBar extends React.Component {
           <a href="javascript:void(0)" className="closebtn" onClick={this.closeNav}>&times;</a>
           {this.props.user && (
             <React.Fragment>
-          Welcome back, {this.props.user.email}.
-              <Link to="/trip-create" user={this.props.user}>New Trip</Link>
+              <span className="nav-text">Welcome back, {this.props.user.email}.</span>
+              <Link to="/home" user={this.props.user}>Home</Link>
               <Link to="/trips" user={this.props.user}>My Trips</Link>
+              <Link to="/trip-create" user={this.props.user}>New Trip</Link>
             </React.Fragment>)}
         </div>
 

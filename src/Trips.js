@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import apiUrl from './apiConfig'
 import { Link } from 'react-router-dom'
+import Button from '@material-ui/core/Button'
 
 class Trips extends Component {
   constructor () {
@@ -40,7 +41,10 @@ class Trips extends Component {
 
     if (trips.length < 1) {
       return (
-        <p>You have no trips yet.</p>
+        <React.Fragment>
+          <p>You have no trips yet.</p>
+          <Link to="/trip-create" user={user}><Button></Button></Link>
+        </React.Fragment>
       )
     }
 

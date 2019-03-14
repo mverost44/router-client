@@ -85,7 +85,7 @@ class Trip extends Component {
             <Link to={{ pathname: `/trip/${id}/todo-create`, state: { trip } }}>
               <Button><AddCircle />Todo</Button>
             </Link>
-            <Link to={`/trips/${id}/edit`}>
+            <Link to={`/trip/${id}/edit`}>
               <Button><Edit /></Button>
             </Link>
             <Button>
@@ -99,8 +99,7 @@ class Trip extends Component {
           <ul>
             {this.state.trip.todos.map(todo => (
               <li key={todo.id}>
-                <p>{todo.title} --- {todo.description}</p>
-                <button onClick={() => this.deleteTodo(todo.trip_id, todo.id)}>Delete Todo</button>
+                <span>{todo.title}<Button onClick={() => this.deleteTodo(todo.trip_id, todo.id)}><Delete /></Button></span>
               </li>
             ))}
           </ul>

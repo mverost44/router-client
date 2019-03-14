@@ -7,9 +7,24 @@ $orange: #ff8e53;
 $primary: linear-gradient(45deg, $melon 30%, $orange 90%);
 
 @import url('https://fonts.googleapis.com/css?family=Carrois+Gothic+SC');
+@import url('http://fonts.googleapis.com/css?family=Merienda+One');
 
 a {
   color: black;
+}
+
+.home {
+  display: flex;
+  justify-content: center;
+  font: 400 100px/1.2 'Merienda One', Helvetica, sans-serif;
+  color: rgba(0, 0, 0, 0.7);
+  text-shadow: 3px 3px 3px #fff;
+}
+
+.sub-home {
+  display: flex;
+  justify-content: center;
+  font-weight: 650;
 }
 
 /* The sidepanel menu */
@@ -59,6 +74,15 @@ a {
   text-align: center;
 }
 
+.jn {
+  color: #e91e63;
+}
+
+.spanright {
+  display: inline;
+  float: right;
+}
+
 .ruler::after {
   content: "§";
   display: inline-block;
@@ -67,6 +91,11 @@ a {
   font-size: 1.5em;
   padding: 0 0.25em;
   background: white;
+}
+
+.map {
+  max-width: 100%;
+  max-height: 100%;
 }
 
 .trip-card {
@@ -128,6 +157,7 @@ a {
   float: left;
   overflow: hidden;
   width: 65%;
+  height: 100vh;
 }
 
 .flash-success,

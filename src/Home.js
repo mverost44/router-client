@@ -29,10 +29,12 @@ class Home extends Component {
   render () {
     return (
       <Fragment>
-        <p>Router.jn</p>
-        <Link to="/trip-create" user={this.props.user}><Button><AddCircle />Create a trip</Button></Link>
-        <p>or</p>
-        <Link to="/trip-create" user={this.props.user}><Button>View your trips</Button></Link>
+        <p className="home">router.<span className="jn">jn</span></p>
+        <p className="sub-home">Route. Plan. Go.</p>
+        <hr />
+        <span><center><Link to="/trip-create" user={this.props.user}><Button color="primary"><AddCircle />Create a trip</Button></Link>
+          <Link to="/trips" user={this.props.user}><Button color="primary">View your trips</Button></Link>
+        </center></span>
       </Fragment>
     )
   }
