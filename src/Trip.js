@@ -81,7 +81,6 @@ class Trip extends Component {
           <span className="trip-name">{name}</span>
           <hr className="ruler" /><br />
           <center>
-            {console.log(trip)}
             <Link to={{ pathname: `/trip/${id}/todo-create`, state: { trip } }}>
               <Button><AddCircle />Todo</Button>
             </Link>

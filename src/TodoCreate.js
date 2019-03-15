@@ -32,7 +32,6 @@ class TodoCreate extends Component {
       }
     })
       .then(response => this.setState({ trip: response.data.trip }))
-      .then(console.log(this.state.trip))
       .catch(() => this.setState(
         { shouldRedirect: true, redirectMessage: 'Trip not found.' }
       ))
@@ -89,7 +88,6 @@ class TodoCreate extends Component {
 
     return (
       <Fragment>
-        {console.log(this.props.location.state.trip)}
         { message && <Alert variant="danger">{message}</Alert> }
         <TodoForm
           handleChange={handleChange}
