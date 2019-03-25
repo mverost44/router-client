@@ -4,38 +4,67 @@ $error: #f08181;
 $charcoal: #ccc;
 $melon: #fe6b8b;
 $orange: #ff8e53;
+$black: #000;
+$white: #fff;
+$fade: rgba(0, 0, 0, 0.7);
 $primary: linear-gradient(45deg, $melon 30%, $orange 90%);
 
 @import url('https://fonts.googleapis.com/css?family=Carrois+Gothic+SC');
 @import url('https://fonts.googleapis.com/css?family=Merienda+One');
 
+body {
+  color: #3f51b5;
+}
+
 a {
-  color: black;
+  color: $black;
+}
+
+.map {
+  display: flex;
+  justify-content: center;
 }
 
 .home {
+  color: $fade;
   display: flex;
-  justify-content: center;
   font: 400 100px/1.2 'Merienda One', Helvetica, sans-serif;
-  color: rgba(0, 0, 0, 0.7);
-  text-shadow: 3px 3px 3px #fff;
+  justify-content: center;
+  text-shadow: 3px 3px 3px $white;
 }
 
 .sub-home {
   display: flex;
+  font-weight: 650;
   justify-content: center;
+}
+
+.nav-text {
+  border-radius: 90px;
+  display: flex;
+  margin: 0;
+  justify-content: center;
+  background-color: $white;
+  padding: 10px;
+}
+
+.email {
   font-weight: 650;
 }
 
-/* The sidepanel menu */
+.no-trips {
+  font-weight: 550;
+  font-size: 30px;
+}
+
 .sidepanel {
+  background-color: #7986cb;
   height: 100%; /* Specify a height */
   width: 0; /* 0 width - change this with JavaScript */
   position: fixed; /* Stay in place */
   z-index: 1; /* Stay on top */
   top: 0;
   left: 0;
-  background-color: #111;
   overflow-x: hidden; /* Disable horizontal scroll */
   padding-top: 60px; /* Place content 60px from the top */
   transition: 0.5s; /* 0.5 second transition effect to slide in the sidepanel */
@@ -46,14 +75,14 @@ a {
   padding: 8px 8px 8px 32px;
   text-decoration: none;
   font-size: 25px;
-  color: #818181;
+  color: #3f51b5;
   display: block;
   transition: 0.3s;
 }
 
 /* When you mouse over the navigation links, change their color */
 .sidepanel a:hover {
-  color: #f1f1f1;
+  color: $black;
 }
 
 /* Position and style the close button (top right corner) */
@@ -145,6 +174,7 @@ a {
 }
 
 .left {
+  color: $black;
   background: #cfd8dc;
   float: left;
   height: 100vh;

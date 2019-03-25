@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react'
+import MyMapComponent from './Map'
 
 const Layout = ({ children }) => (
   <Fragment>
@@ -6,7 +7,7 @@ const Layout = ({ children }) => (
       { children }
     </div>
     <div className="right">
-      <img className="map" src="https://i.imgur.com/OtsRSS9.png" />
+      <MyMapComponent isMarkerShown={false} />
     </div>
   </Fragment>
 )

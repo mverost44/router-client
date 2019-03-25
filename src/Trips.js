@@ -41,9 +41,11 @@ class Trips extends Component {
 
     if (trips.length < 1) {
       return (
-        <React.Fragment>
-          <p>You have no trips yet.</p>
-          <Link to="/trip-create" user={user}><Button></Button></Link>
+        <React.Fragment><center>
+          <p className="no-trips">Oops!</p>
+          <p>You have no trips yet.<br /></p>
+          <Link to="/trip-create" user={user}><Button>Create one now!</Button></Link>
+        </center>
         </React.Fragment>
       )
     }

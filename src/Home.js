@@ -4,6 +4,7 @@ import apiUrl from './apiConfig'
 import { Link } from 'react-router-dom'
 import Button from '@material-ui/core/Button'
 import AddCircle from '@material-ui/icons/AddCircle'
+import Map from '@material-ui/icons/Map'
 
 class Home extends Component {
   constructor () {
@@ -30,6 +31,7 @@ class Home extends Component {
     return (
       <Fragment>
         <p className="home">router.<span className="jn">jn</span></p>
+        <span className="map"><Map /></span>
         <p className="sub-home">Route. Plan. Go.</p>
         <hr />
         <span><center><Link to="/trip-create" user={this.props.user}><Button color="primary"><AddCircle />Create a trip</Button></Link>

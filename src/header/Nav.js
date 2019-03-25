@@ -7,9 +7,10 @@ import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
 import IconButton from '@material-ui/core/IconButton'
 import MenuIcon from '@material-ui/icons/Menu'
-import AccountCircle from '@material-ui/icons/AccountCircle'
 import MenuItem from '@material-ui/core/MenuItem'
+import AccountCircle from '@material-ui/icons/AccountCircle'
 import Menu from '@material-ui/core/Menu'
+import PersonPin from '@material-ui/icons/PersonPin'
 
 const styles = {
   root: {
@@ -73,7 +74,8 @@ class MenuAppBar extends React.Component {
           <a href="javascript:void(0)" className="closebtn" onClick={this.closeNav}>&times;</a>
           {this.props.user && (
             <React.Fragment>
-              <span className="nav-text">Welcome back, {this.props.user.email}.</span>
+              <div className="nav-text"><PersonPin /><br />
+                <span className="email">{this.props.user.email}</span></div>
               <Link to="/home" user={this.props.user}>Home</Link>
               <Link to="/trips" user={this.props.user}>My Trips</Link>
               <Link to="/trip-create" user={this.props.user}>New Trip</Link>
