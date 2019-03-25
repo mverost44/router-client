@@ -8,6 +8,7 @@ import AddCircle from '@material-ui/icons/AddCircle'
 import Edit from '@material-ui/icons/Edit'
 import Button from '@material-ui/core/Button'
 import PropTypes from 'prop-types'
+import MapWithADirectionsRenderer from './MapWithDirections'
 
 class Trip extends Component {
   constructor () {
@@ -103,6 +104,7 @@ class Trip extends Component {
             ))}
           </ul>
         </div>
+        <MapWithADirectionsRenderer origin={this.origin} destination={this.destination} />
       </article>
     )
   }
