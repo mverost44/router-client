@@ -42,19 +42,23 @@ const styles = theme => ({
   }
 })
 
-const TodoForm = ({ handleChange, handleSubmit, trip, todo, classes }) => (
+const ExpenseForm = ({ handleChange, handleSubmit, trip, expense, classes }) => (
   <main className={classes.main}>
     <CssBaseline />
     <Paper className={classes.paper}>
       <Avatar className={classes.avatar}>
       </Avatar>
       <Typography component="h1" variant="h5">
-        New Todo
+        New Expense
       </Typography>
       <form className={classes.form} onSubmit={handleSubmit}>
         <FormControl margin="normal" required fullWidth>
-          <InputLabel htmlFor="Todo Title">Todo Information</InputLabel>
-          <Input id="title" name="title" type="text" value={todo.title} onChange={handleChange} autoComplete="title" autoFocus />
+          <InputLabel htmlFor="Expense amount">Amount</InputLabel>
+          <Input id="amount" name="amount" type="number" value={expense.amount} onChange={handleChange} autoComplete="amount" autoFocus />
+        </FormControl>
+        <FormControl margin="normal" required fullWidth>
+          <InputLabel htmlFor="Expense description">Description</InputLabel>
+          <Input id="description" name="description" type="text" value={expense.description} onChange={handleChange} autoComplete="description" autoFocus />
         </FormControl>
         <Button
           type="submit"
@@ -63,15 +67,15 @@ const TodoForm = ({ handleChange, handleSubmit, trip, todo, classes }) => (
           color="primary"
           className={classes.submit}
         >
-          Create Todo
+          Create Expense
         </Button>
       </form>
     </Paper>
   </main>
 )
 
-TodoForm.propTypes = {
+ExpenseForm.propTypes = {
   classes: PropTypes.object.isRequired
 }
 
-export default withStyles(styles)(TodoForm)
+export default withStyles(styles)(ExpenseForm)

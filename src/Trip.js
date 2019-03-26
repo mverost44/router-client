@@ -8,7 +8,6 @@ import AddCircle from '@material-ui/icons/AddCircle'
 import Edit from '@material-ui/icons/Edit'
 import Button from '@material-ui/core/Button'
 import PropTypes from 'prop-types'
-import MapWithADirectionsRenderer from './MapWithDirections'
 
 class Trip extends Component {
   constructor () {
@@ -57,6 +56,18 @@ class Trip extends Component {
       .catch(() => this.setState({ shouldRedirect: true }))
   }
 
+  deleteExpense (tripId, id) {
+    axios({
+      url: `${apiUrl}/expenses/${id}`,
+      method: 'delete',
+      headers: {
+        'Authorization': `Token token=${this.props.user.token}`
+      }
+    })
+      .then(() => this.setState({ shouldRedirect: true, redirectMessage: 'Successfully deleted.' }))
+      .catch(() => this.setState({ shouldRedirect: true }))
+  }
+
   render () {
     const { trip, shouldRedirect, redirectMessage } = this.state
 
@@ -75,7 +86,7 @@ class Trip extends Component {
       )
     }
 
-    const { id, name, origin, destination, expense } = trip
+    const { id, name, origin, destination } = trip
     return (
       <article>
         <div key={id} className="trip-card container">
@@ -84,6 +95,9 @@ class Trip extends Component {
           <center>
             <Link to={{ pathname: `/trip/${id}/todo-create`, state: { trip } }}>
               <Button><AddCircle />Todo</Button>
+            </Link>
+            <Link to={{ pathname: `/trip/${id}/expense-create`, state: { trip } }}>
+              <Button><AddCircle />Expense</Button>
             </Link>
             <Link to={`/trip/${id}/edit`}>
               <Button><Edit /></Button>
@@ -94,7 +108,14 @@ class Trip extends Component {
           </center>
           <p className="lead">{origin} to {destination}.</p>
           <hr className="my-4" />
-          <p className="lead">${expense} in expenses.</p>
+          <p className="lead">Expenses:</p>
+          <ul>
+            {this.state.trip.expenses.map(expense => (
+              <li key={expense.id}>
+                <span>${expense.amount} for {expense.description}<Button onClick={() => this.deleteExpense(expense.trip_id, expense.id)}><Delete /></Button></span>
+              </li>
+            ))}
+          </ul>
           <p className="lead">Todo List:</p>
           <ul>
             {this.state.trip.todos.map(todo => (
@@ -104,7 +125,6 @@ class Trip extends Component {
             ))}
           </ul>
         </div>
-        <MapWithADirectionsRenderer origin={this.origin} destination={this.destination} />
       </article>
     )
   }

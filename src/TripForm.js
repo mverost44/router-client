@@ -64,10 +64,6 @@ const TripForm = ({ handleChange, handleSubmit, trip, classes }) => (
           <InputLabel htmlFor="origin">Destination</InputLabel>
           <Input name="destination" value={trip.destination} type="text" id="destination" autoComplete="destination" onChange={handleChange} />
         </FormControl>
-        <FormControl margin="normal" required fullWidth>
-          <InputLabel htmlFor="origin">Expenses</InputLabel>
-          <Input name="expense" value={trip.expense} type="number" id="expense" autoComplete="expense" onChange={handleChange} />
-        </FormControl>
         <Button
           type="submit"
           fullWidth

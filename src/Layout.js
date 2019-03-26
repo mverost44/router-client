@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import MyMapComponent from './Map'
+import MapWithADirectionsRenderer from './MapWithDirections'
 
 const Layout = ({ children }) => (
   <Fragment>
@@ -7,7 +7,7 @@ const Layout = ({ children }) => (
       { children }
     </div>
     <div className="right">
-      <MyMapComponent isMarkerShown={false} />
+      <MapWithADirectionsRenderer />
     </div>
   </Fragment>
 )
